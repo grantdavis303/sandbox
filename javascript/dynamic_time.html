@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Dynamic Time </title>
+</head>
+<body>
+
+  <h3 id="time"></h3>
+
+<script>
+function updateTime() {
+  var today = new Date();
+  var hourNow = today.getHours();
+  var minuteNow = today.getMinutes();
+  var secondNow = today.getSeconds();
+
+  if (hourNow > 12) {
+    formattedHour = hourNow - 12;
+    am_pm = 'pm';
+  } else {
+    formattedHour = hourNow;
+    am_pm = 'am';
+  }
+
+  if (minuteNow > 0 && minuteNow < 10) {
+    formattedMinutes = '0' + minuteNow;
+  } else {
+    formattedMinutes = minuteNow;
+  }
+
+  if (secondNow >= 0 && secondNow < 10) {
+    formattedSeconds = '0' + secondNow;
+  } else {
+    formattedSeconds = secondNow;
+  }
+
+  document.getElementById("time").innerHTML = `${hourNow}:${formattedMinutes}:${formattedSeconds} ${am_pm}`;
+}
+
+updateTime();
+
+setInterval(updateTime, 1000);
+</script>
+</body>
+</html>
