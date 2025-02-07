@@ -9,7 +9,8 @@ cd shell_script_executable
 chmod +x script.sh
 
 # Compile the executable program, which creates a desktop icon
-gcc program.c -o program
+# Note: There might be an error if the name (program.c) is the same as the executable file (program), so change it to be different.
+gcc program.c -o cool_program
 
 # Click on the executable file
 ```
