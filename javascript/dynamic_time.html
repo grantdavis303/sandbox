@@ -24,7 +24,7 @@ function updateTime() {
     am_pm = 'am';
   }
 
-  if (minuteNow > 0 && minuteNow < 10) {
+  if (minuteNow >= 0 && minuteNow < 10) {
     formattedMinutes = '0' + minuteNow;
   } else {
     formattedMinutes = minuteNow;
