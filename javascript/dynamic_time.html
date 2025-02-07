@@ -36,7 +36,7 @@ function updateTime() {
     formattedSeconds = secondNow;
   }
 
-  document.getElementById("time").innerHTML = `${hourNow}:${formattedMinutes}:${formattedSeconds} ${am_pm}`;
+  document.getElementById("time").innerHTML = `${formattedHour}:${formattedMinutes}:${formattedSeconds} ${am_pm}`;
 }
 
 updateTime();
