@@ -16,17 +16,8 @@ require 'pry'
 # Output:
 
 def method(input)
-  binding.pry
+  puts input
 end
-
-p method('input')
-# Expecting
-
-p method('input')
-# Expecting
-
-p method('input')
-# Expecting
 
 p method('input')
 # Expecting
