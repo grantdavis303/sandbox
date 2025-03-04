@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./assets/styles/styles.css" type="text/css" />
+  <title> Nav Menu Test </title>
+</head>
+<body id="body">
+  <div id="outer_navigation_menu">
+    <div id="navigation_menu">
+      <img id="main_logo" src="./miro_logo.svg" height="40" />
+
+      <div id="standard_menu">
+        <ul id="standard_menu_list">
+          <li class="standard_menu_li"> Home </li>
+          <li class="standard_menu_li"> About </li>
+          <li class="standard_menu_li"> Contact </li>
+          <li class="standard_menu_li"> Settings </li>
+          <li class="standard_menu_li"> Support </li>
+        </ul>
+      </div>
+
+      <img id="hamburger_menu_icon" src="./hamburger.svg" height="40" />
+    </div>
+  </div>
+
+  <div id="hamburger_menu_content">
+    <ul id="hamburger_menu_list">
+      <li class="hamburger_menu_li"> Home </li>
+      <li class="hamburger_menu_li"> About </li>
+      <li class="hamburger_menu_li"> Contact </li>
+      <li class="hamburger_menu_li"> Settings </li>
+      <li class="hamburger_menu_li"> Support </li>
+    </ul>
+  </div>
+
+  <div id="page_content">
+    <h1> Main Header </h1>
+
+      <p> Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text v Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text v Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text v Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text v Paragraph Text Paragraph Text Paragraph Text  Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text Paragraph Text v Paragraph Text Paragraph Text Paragraph Textv</p>
+
+    <h2> Sub Header </h2>
+
+      <p> Paragraph Text </p>
+  </div>
+
+<script>
+  const standardMenu = document.getElementById('standard_menu');
+  const hamburgerMenuIcon = document.getElementById('hamburger_menu_icon');
+  const hamburgerMenuContent = document.getElementById('hamburger_menu_content');
+  const hamburgerMenuLimit = 600;
+
+  window.addEventListener('load', updateMenuStyle);
+  window.addEventListener('resize', updateMenuStyle);
+  hamburgerMenuIcon.addEventListener('click', displayHamburgerMenu);
+
+  function updateMenuStyle(){
+    if (window.innerWidth > hamburgerMenuLimit) {
+      standardMenu.style.display = 'block';
+      hamburgerMenuIcon.style.display = 'none';
+    } else {
+      standardMenu.style.display = 'none';
+      hamburgerMenuIcon.style.display = 'block';
+    }
+
+    hideHamburgerMenu();
+  }
+
+  function displayHamburgerMenu(){
+    if (hamburgerMenuIcon.src = './hamburger.svg') {
+      hamburgerMenuIcon.src = './hamburger_close.svg';
+      hamburgerMenuContent.style.display = 'block';
+      hamburgerMenuIcon.addEventListener('click', hideHamburgerMenu);
+    }
+  }
+
+  function hideHamburgerMenu(){
+    hamburgerMenuIcon.src = './hamburger.svg';
+    hamburgerMenuContent.style.display = 'none';
+    hamburgerMenuIcon.removeEventListener('click', hideHamburgerMenu);
+  }
+</script>
+</body>
+</html>
