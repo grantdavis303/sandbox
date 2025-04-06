@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Dynamic Window Dimensions </title>
+</head>
+<body>
+
+  <h3> Width: <span id="width"></span> </h3>
+  <h3> Height: <span id="height"></span> </h3>
+
+  <p> Note: The inner width of the body can be 1280 but the actual width of the HTML document is 1265 (on a 2560px monitor). </p>
+
+<script>
+function updateDimensions(){
+  const width = document.getElementById('width');
+  const height = document.getElementById('height');
+
+  width.textContent = window.innerWidth;
+  height.textContent = window.innerHeight;
+}
+
+updateDimensions();
+window.addEventListener('resize', updateDimensions)
+</script>
+</body>
+</html>
