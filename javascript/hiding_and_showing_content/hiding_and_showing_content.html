@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Hiding and Showing Content </title>
+  <style>
+    div#button {
+      cursor: pointer;
+      width: fit-content;
+      user-select: none;
+    }
+
+    h2#title {
+      display: inline;
+    }
+
+    img#arrow {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="button">
+    <h2 id="title">Click Me</h2>
+    <img id="arrow" src="./assets/up_arrow.svg" width="20px">
+  </div>
+
+  <div id="content">
+    <p> This content will be shown by clicking the title, and will be hidden by clicking the title again. </p>
+  </div>
+
+  <div>
+    <h3> Title </h3>
+    <p> This is filler content. </p>
+  </div>
+
+  <div>
+    <h3> Title </h3>
+    <p> This is filler content. </p>
+  </div>
+
+  <div>
+    <h3> Title </h3>
+    <p> This is filler content. </p>
+  </div>
+
+<script>
+const button = document.getElementById('button');
+const content = document.getElementById('content');
+const arrow = document.getElementById('arrow');
+
+function showContent() {
+  content.style.display = 'block';
+  arrow.src = './assets/down_arrow.svg';
+  button.addEventListener('click', hideContent);
+  button.removeEventListener('click', showContent);
+}
+
+function hideContent() {
+  content.style.display = 'none';
+  arrow.src = './assets/up_arrow.svg';
+  button.addEventListener('click', showContent);
+  button.removeEventListener('click', hideContent);
+}
+
+hideContent();
+</script>
+</body>
+</html>
