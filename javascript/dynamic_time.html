@@ -16,7 +16,7 @@ function updateTime() {
   var minuteNow = today.getMinutes();
   var secondNow = today.getSeconds();
 
-  if (hourNow > 12) {
+  if (hourNow >= 12) {
     formattedHour = hourNow - 12;
     am_pm = 'pm';
   } else {
