@@ -10,18 +10,48 @@
   <h3 id="time"></h3>
 
 <script>
-function updateTime() {
-  var today = new Date();
-  var hourNow = today.getHours();
-  var minuteNow = today.getMinutes();
-  var secondNow = today.getSeconds();
+function getTime() {
+  document.getElementById('time').textContent = getCurrentTime();
+}
 
-  if (hourNow >= 12) {
-    formattedHour = hourNow - 12;
+// Get the current time
+function getCurrentTime() {
+  let date = new Date();
+
+  return formatTime(date);
+}
+
+// Get the future time (if applicable)
+function getFutureTime(seconds) {
+  let date = new Date();
+  const addedTime = 1000 * seconds;
+
+  date = new Date(date.getTime() + (addedTime));
+
+  return formatTime(date);
+}
+
+// Properly format the time
+function formatTime(dateObject) {
+  let date = dateObject;
+  let hourNow = date.getHours();
+  let minuteNow = date.getMinutes();
+  let secondNow = date.getSeconds();
+
+  if (hourNow == 0) {
+    formattedHour = 12;
+    am_pm = 'am';
+  } else if (hourNow == 12) {
+    formattedHour = 12;
     am_pm = 'pm';
   } else {
-    formattedHour = hourNow;
-    am_pm = 'am';
+    if (hourNow > 12) {
+      formattedHour = hourNow - 12;
+      am_pm = 'pm';
+    } else {
+      formattedHour = hourNow;
+      am_pm = 'am';
+    }
   }
 
   if (minuteNow >= 0 && minuteNow < 10) {
@@ -36,12 +66,12 @@ function updateTime() {
     formattedSeconds = secondNow;
   }
 
-  document.getElementById("time").innerHTML = `${formattedHour}:${formattedMinutes}:${formattedSeconds} ${am_pm}`;
+  return `${formattedHour}:${formattedMinutes}:${formattedSeconds} ${am_pm}`;
 }
 
-updateTime();
+getTime();
 
-setInterval(updateTime, 1000);
+setInterval(getTime, 1000);
 </script>
 </body>
 </html>
